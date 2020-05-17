@@ -12,7 +12,7 @@
 
 ```javascript
 
-/* First, Install the needed packages */
+/* dsfsFirst, Install the needed packages */
 npm install
 
 /* Then start both Node and React */
