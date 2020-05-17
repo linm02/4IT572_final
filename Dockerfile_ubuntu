@@ -3,4 +3,8 @@ FROM ubuntu:latest
 RUN echo cest \
 	&& apt-get update \
 	&& apt-get install python3.6 \
-	&& python3 --version
+	&& python3 --version \
+	&& apt-get install python3-pip \
+	&& pip3 install ansible boto boto3 \
+	&& ansible --help
+	
