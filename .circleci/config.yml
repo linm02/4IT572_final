@@ -22,15 +22,26 @@ jobs:
          at: .
       - run:
           command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN
+          # command: docker exec echo
+          # command: docker exec -d vse echo blabla
           
+  exececho:
+    <<: *vse
+    steps:
+      - attach_workspace:
+         at: .
+      - run:
+          command: docker exec -d vse echo blabla
+                
 workflows:
   version: 2.1
   build:
     jobs:
       - build
-      - deploy:
-         requires:
-            - build
-         filters:
-            branches:
-                only: master
+      - exececho
+      # - deploy:
+         # requires:
+            # - build
+         # filters:
+            # branches:
+                # only: master
