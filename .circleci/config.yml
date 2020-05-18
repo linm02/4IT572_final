@@ -23,6 +23,7 @@ jobs:
       - setup_remote_docker:
           docker_layer_caching: false
       - run:
+          command: ssh "$DOCKER_HOST"
           # command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN
           command: sudo docker build -f "Dockerfile_ubuntu" -t nehehe:latest .
           # command: docker build -f "Dockerfile_ubuntu" -t nehehe:latest .
