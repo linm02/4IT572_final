@@ -45,10 +45,10 @@
       become: yes
     - name: Get project files from git
       git: 
-        repo: 'https://github.com/linm02/4IT572_docker.git'
+        repo: 'https://github.com/linm02/4IT572_final.git'
         dest: ./app
     - name: Build docker with eshop
-      shell: cd app && docker build -t myeshop:latest .
+      shell: cd app && docker build -f "Dockerfile_eshop" -t myeshop:latest .
       become: yes
     - name: Run Docker with eshop
       shell: docker run -p 80:3000 myeshop
