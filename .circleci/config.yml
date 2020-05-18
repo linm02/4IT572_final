@@ -17,8 +17,6 @@ jobs:
             - .
   deploy:
     <<: *vse
-    machine:
-      enabled: true
     steps:
       - attach_workspace:
          at: .
@@ -27,7 +25,7 @@ jobs:
       # - run:
           # command: ssh "$DOCKER_HOST"
       - run:    # command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN
-          command: sudo docker build -f "Dockerfile_ubuntu" -t nehehe:latest .
+          command: docker --tlsverify -H=$DOCKER_HOST --tlscacert=$DOCKER_CERT_PATH/ca.pem --tlscert=$DOCKER_CERT_PATH/cert.pem --tlskey=$DOCKER_CERT_PATH/key.pem build -f "Dockerfile_ubuntu" -t nehehe:latest .
           # command: docker build -f "Dockerfile_ubuntu" -t nehehe:latest .
           # command: docker exec echo
           # command: docker exec -d vse echo blabla
