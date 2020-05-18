@@ -22,21 +22,9 @@ jobs:
          at: .
       - setup_remote_docker:
           docker_layer_caching: false
-      # - run:
-          # command: ssh "$DOCKER_HOST"
-      - run:    # command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN
+      - run:
           command: docker --tlsverify -H=$DOCKER_HOST --tlscacert=$DOCKER_CERT_PATH/ca.pem --tlscert=$DOCKER_CERT_PATH/cert.pem --tlskey=$DOCKER_CERT_PATH/key.pem build -f "Dockerfile_ubuntu" -t nehehe:latest .
-          # command: docker build -f "Dockerfile_ubuntu" -t nehehe:latest .
-          # command: docker exec echo
-          # command: docker exec -d vse echo blabla
-          
-  # exececho:
-    # <<: *vse
-    # steps:
-      # - attach_workspace:
-         # at: .
-      # - run:
-          # command: docker exec -d vse echo blabla
+
                 
 workflows:
   version: 2.1
@@ -46,6 +34,6 @@ workflows:
       - deploy:
          requires:
             - build
-         # filters:
-            # branches:
-                # only: master
+         filters:
+            branches:
+                only: master
