@@ -7,6 +7,8 @@
       ec2:
         instance_type: t2.micro
         image: ami-085925f297f89fce1
+        instance_tags:
+          Name: eshop
         region: us-east-1
         key_name: presentation
         vpc_subnet_id: subnet-081eed6e
