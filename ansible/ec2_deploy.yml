@@ -7,8 +7,7 @@
       ec2:
         instance_type: t2.micro
         image: ami-085925f297f89fce1
-        instance_tags:
-          Name: eshop
+        
         region: us-east-1
         key_name: presentation
         vpc_subnet_id: subnet-081eed6e
@@ -18,9 +17,11 @@
         aws_access_key: "ASIA4X2L4Z36MB4RARUU"
         aws_secret_key: "GfI1FwzZ5a6VOEkWbgvORmDKgp+Ahzczszs1LFHv"
         security_token: "FwoGZXIvYXdzEKb//////////wEaDG4TAVfcoXkydTtqqyLGAVrBQ7d6LUjIFV0xX3LWosVFfhaSJ2EeTFwis2bQB9IwTPnW0oqoDiotQpXKezjUuKPyZRTo33zJEEOze7hemX/lelqpyVyzVsG2iVLvxeKavu+HGv12zeRtlx8G6HYiaT5qcGwb8+3mrq3FbgGDmTMA4L88AByq4+mRnLqd5i1svZcyr+8ZtjN0wyc3B6DsLT6D0NStTLHxLXGiE8HfNZ943g30Y5LQXZLeUlegPhdtW9ZllaMhk8YUgzkIAAjTWAlM+DYMACjr24v2BTItS8sSUbH6XOQj5XZOFCucXKThkeTyOS5G6bxQkvRifMxs3zyrIzbOotXeakaw"
+        exact_count: 1
         count_tag:
           Name: eshop
-        exact_count: 1        
+        instance_tags:
+          Name: eshop        
       register: ec2
       
     - name: Add instance host to group
